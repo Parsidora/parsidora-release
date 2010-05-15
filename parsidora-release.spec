@@ -1,13 +1,13 @@
 %define release_name Parsidora
-%define dist_version 12
+%define dist_version 13
 
 Summary:	Parsidora release files
 Name:		parsidora-release
-Version:	12.0
+Version:	13.0
 Release:	1
 License:	GPLv2
 Group:		System Environment/Base
-Source:		%{name}-%{version}.tar.gz
+Source:		%{name}-%{version}.tar.bz2
 Obsoletes:	redhat-release
 Provides:	redhat-release = %{version}-%{release}
 Provides:	system-release = %{version}-%{release}
@@ -19,6 +19,15 @@ Conflicts:	generic-release
 %description
 Parsidora release files such as yum configs and various /etc/ files that
 define the release.
+
+%package rawhide
+Summary:        Rawhide repo definitions
+Requires:	parsidora-release = %{version}-%{release}
+Conflicts:	fedora-release-rawhide
+Conflicts:      generic-release-rawhide
+
+%description rawhide
+This package provides the rawhide repo definitions.
 
 %package notes
 Summary:	Release Notes
@@ -88,7 +97,8 @@ rm -rf $RPM_BUILD_ROOT
 /etc/system-release
 %config %attr(0644,root,root) /etc/system-release-cpe
 %dir /etc/yum.repos.d
-%config(noreplace) /etc/yum.repos.d/*
+%config(noreplace) /etc/yum.repos.d/fedora.repo
+%config(noreplace) /etc/yum.repos.d/fedora-updates*.repo
 %config(noreplace) %attr(0644,root,root) /etc/issue
 %config(noreplace) %attr(0644,root,root) /etc/issue.net
 %config %attr(0644,root,root) /etc/rpm/macros.dist
@@ -99,7 +109,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %doc README.Parsidora-Release-Notes
 
+%files rawhide
+%defattr(-,root,root,-)
+%config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
+
 %changelog
+* Sat May 15 2010 Hedayat Vatankhah <hedayat@grad.com> 13.0-1
+- Updated for Fedora 13 based release
+
 * Tue Jan 26 2010 Hedayat Vatankhah <hedayat@grad.com> 12.0-1
 - Initial package for parsidora-release and parsidora-release-notes, forked
   from generic packages
