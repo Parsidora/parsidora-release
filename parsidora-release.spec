@@ -4,7 +4,7 @@
 Summary:	Parsidora release files
 Name:		parsidora-release
 Version:	13.0
-Release:	1
+Release:	2
 License:	GPLv2
 Group:		System Environment/Base
 Source:		%{name}-%{version}.tar.bz2
@@ -76,6 +76,8 @@ for file in fedora*repo ; do
   install -m 644 $file $RPM_BUILD_ROOT/etc/yum.repos.d
 done
 
+install -m 644 parsidora-dvd.repo $RPM_BUILD_ROOT/etc/yum.repos.d
+
 # Set up the dist tag macros
 install -d -m 755 $RPM_BUILD_ROOT/etc/rpm
 cat >> $RPM_BUILD_ROOT/etc/rpm/macros.dist << EOF
@@ -99,6 +101,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir /etc/yum.repos.d
 %config(noreplace) /etc/yum.repos.d/fedora.repo
 %config(noreplace) /etc/yum.repos.d/fedora-updates*.repo
+%config(noreplace) parsidora-dvd.repo
 %config(noreplace) %attr(0644,root,root) /etc/issue
 %config(noreplace) %attr(0644,root,root) /etc/issue.net
 %config %attr(0644,root,root) /etc/rpm/macros.dist
@@ -114,6 +117,9 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Fri Jul 02 2010 Hedayat Vatankhah <hedayat@fedorapeople.org> 13.0-2
+- Added parsidora-dvd.repo to the package!
+
 * Sat May 15 2010 Hedayat Vatankhah <hedayat@grad.com> 13.0-1
 - Updated for Fedora 13 based release
 
