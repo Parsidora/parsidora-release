@@ -4,7 +4,7 @@
 Summary:	Parsidora release files
 Name:		parsidora-release
 Version:	13
-Release:	2
+Release:	1
 License:	GPLv2
 Group:		System Environment/Base
 Source:		%{name}-%{version}.tar.bz2
@@ -117,6 +117,10 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Mon Jul 05 2010 Hedayat Vatankhah <hedayat@fedorapeople.org> 13-1
+- Changed the version to 13 instead of 13.0
+- Enabled DVD repo by default
+
 * Fri Jul 02 2010 Hedayat Vatankhah <hedayat@fedorapeople.org> 13.0-2
 - Added parsidora-dvd.repo to the package!
 
