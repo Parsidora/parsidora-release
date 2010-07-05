@@ -3,7 +3,7 @@
 
 Summary:	Parsidora release files
 Name:		parsidora-release
-Version:	13.0
+Version:	13
 Release:	2
 License:	GPLv2
 Group:		System Environment/Base

@@ -1,10 +1,10 @@
 [fedora-dvd]
-name="Parsidora $releasever $basearch DVD"
+name=Parsidora $releasever $basearch DVD
 baseurl=file:///media/Parsidora%20$releasever%20$basearch%20DVD
         file:///media/Fedora%20$releasever%20$basearch%20DVD
         file:///media/cdrom
         file:///mnt/cdrom
 cost=500
-enabled=0
+enabled=1
 metadata_expire=-1
 gpgcheck=0
