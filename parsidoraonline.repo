@@ -1,0 +1,7 @@
+[parsidora]
+name=Parsidora $releasever $basearch online
+baseurl=http://lashar.fedorapeople.org/parsidora/13/
+cost=500
+enabled=1
+metadata_expire=-1
+gpgcheck=0
